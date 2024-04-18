@@ -34,7 +34,9 @@ def login() -> Tuple[str, int]:
         response.set_cookie(session_name, session_id)
         return response
 
-@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+
+@app_views.route('/auth_session/logout', methods=['DELETE'],
+                 strict_slashes=False)
 def logout():
     """DELETE /api/v1/auth_session/logout
     Return:
