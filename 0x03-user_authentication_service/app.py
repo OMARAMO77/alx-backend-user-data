@@ -68,8 +68,8 @@ def profile():
 def get_reset_password_token():
     """Reset password route
     """
+    email = request.form['email']
     try:
-        email = request.form['email']
         reset_token = AUTH.get_reset_password_token(email)
     except KeyError:
         abort(403)
