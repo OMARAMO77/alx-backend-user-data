@@ -68,13 +68,10 @@ def profile():
 def get_reset_password_token():
     """Reset password route
     """
-    try:
-        email = request.form['email']
-    except KeyError:
-        abort(403)
+    email = request.form['email']
     try:
         reset_token = AUTH.get_reset_password_token(email)
-    except KeyError:
+    except ValueError:
         abort(403)
     return jsonify({"email": email, "reset_token": reset_token})
 
